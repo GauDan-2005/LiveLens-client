@@ -31,3 +31,39 @@
   font-size: 1rem;
   font-weight: bold;
 }
+
+.nav_btn {
+  display: flex;
+}
+
+@media only screen and (max-width: 768px) {
+  .page {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid #cfcfcf;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .page:hover {
+    background-color: #aeaeae;
+  }
+
+  .page.active {
+    display: flex;
+    background-color: #414141;
+    color: #fff;
+  }
+
+  .page_text {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .nav_btn {
+    display: flex;
+  }
+}

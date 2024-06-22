@@ -36,7 +36,10 @@ const Pagination = ({
 
   return (
     <div className={styles.pagination}>
-      <div className={styles.page} onClick={() => prevClick()}>
+      <div
+        className={`${styles.page} ${styles.nav_btn}`}
+        onClick={() => prevClick()}
+      >
         <p className={styles.page_text}>Prev</p>
       </div>
       {pages.map((page) => (
@@ -45,10 +48,15 @@ const Pagination = ({
           key={page}
           onClick={() => setCurrPage(page)}
         >
-          <p className={styles.page_text}>{page}</p>
+          <p className={styles.page_text}>
+            {page === pages.length ? "Last" : page}
+          </p>
         </div>
       ))}
-      <div className={styles.page} onClick={() => nextClick()}>
+      <div
+        className={`${styles.page} ${styles.nav_btn}`}
+        onClick={() => nextClick()}
+      >
         <p className={styles.page_text}>Next</p>
       </div>
     </div>
