@@ -34,3 +34,25 @@
   gap: 1.6rem;
   align-self: stretch;
 }
+
+@media only screen and (max-width: 768px) {
+  /* smartphones, Android phones, landscape iPhone */
+  .home {
+  }
+
+  .heading_div {
+  }
+
+  .heading {
+  }
+
+  .heading_hr {
+  }
+
+  .news_cards_div {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+    align-self: stretch;
+  }
+}
