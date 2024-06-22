@@ -1,13 +1,11 @@
 .navbar {
   padding: 0.8rem 2.5rem;
-
   display: flex;
   flex-direction: column;
   gap: 1rem;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
-
   background-color: #1a1a1a;
 }
 
@@ -17,6 +15,8 @@
   gap: 2rem;
   justify-content: space-between;
   align-items: center;
+
+  position: relative;
 }
 
 .logo {
@@ -28,9 +28,7 @@
   gap: 0.8rem;
   justify-content: space-between;
   align-items: center;
-
   padding: 0.5rem 1.5rem;
-
   background: #555;
   border-radius: 5rem;
   cursor: pointer;
@@ -65,4 +63,102 @@
 .save_text {
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  height: 0.15rem;
+  width: 1.5rem;
+  background-color: #fff;
+  margin: 0.15rem 0;
+  transition: 0.3s;
+}
+
+.hamburger.open .bar:nth-child(1) {
+  transform: translateY(0.3rem) rotate(45deg);
+}
+
+.hamburger.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .bar:nth-child(3) {
+  transform: translateY(-0.6rem) rotate(-45deg);
+}
+
+@keyframes leftIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes leftOut {
+  0% {
+    display: flex;
+    transform: translateX(0%);
+  }
+  100% {
+    display: none;
+    transform: translateX(-100%);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav_menu {
+    display: hidden;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 10vh;
+  }
+
+  .nav_menu.show {
+    display: flex;
+    transition: all 0.3 ease;
+    animation: leftIn 0.3s ease-in-out;
+  }
+
+  .nav_menu.hide {
+    display: none;
+    animation: leftOut 0.3s ease-in-out;
+  }
+
+  .navbar {
+    padding: 1rem 2rem;
+    position: relative;
+  }
+
+  .nav_upper {
+    gap: 1rem;
+  }
+
+  .logo {
+    height: 4rem;
+  }
+
+  .save {
+    padding: 0.8rem 0.8rem;
+  }
+
+  .save_icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .save_text {
+    display: none;
+  }
 }

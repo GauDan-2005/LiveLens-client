@@ -1,3 +1,4 @@
+import arrow from './../assets/icons/arrow.svg';
 import link from './../assets/icons/link.svg';
 import save from './../assets/icons/save.svg';
 import searchNormal from './../assets/icons/search-normal.svg';
@@ -9,5 +10,5 @@ import logoSearch from './../assets/logo-search.svg';
 import logo from './../assets/logo.svg';
 import react from './../assets/react.svg';
 
-export const icons = { link, save, searchNormal, socialIcons1, socialIcons2, socialIcons };
+export const icons = { arrow, link, save, searchNormal, socialIcons1, socialIcons2, socialIcons };
 export const assets = { logoOnly, logoSearch, logo, react };

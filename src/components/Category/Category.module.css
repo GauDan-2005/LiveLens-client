@@ -31,6 +31,9 @@
   background-color: #ededed; /* Example active background color */
   color: #1a1a1a;
 }
+.active:hover {
+  background-color: #efefef;
+}
 
 .hr {
   background-color: #fff;
@@ -38,4 +41,54 @@
   align-self: stretch;
   margin: 0.5rem 0;
   width: 1px;
+}
+
+@media only screen and (max-width: 768px) {
+  .category {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    padding: 1rem 2rem;
+
+    color: #ededed;
+    background: #1a1a1a;
+
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+  }
+
+  .category_box {
+    padding: 0.5rem 1.2rem;
+    align-self: stretch;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .category_box:hover {
+    background: #404040;
+  }
+
+  .category_text {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .active {
+    background-color: #ededed;
+    color: #1a1a1a;
+  }
+
+  .active:hover {
+    background-color: #efefef;
+  }
+
+  .hr {
+    background-color: #fff;
+    border: 0;
+    align-self: stretch;
+    margin: 0.5rem 0;
+    width: 1px;
+  }
 }
