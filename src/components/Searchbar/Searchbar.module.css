@@ -1,0 +1,36 @@
+.searchbar {
+  padding: 0.8rem 1.2rem;
+  border-radius: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 30%;
+  background-color: rgba(128, 134, 139, 0.2);
+}
+
+.search {
+  background: transparent;
+  outline: 0;
+  border-width: 0;
+  color: #fdfdfd;
+  width: 100%;
+
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search:focus {
+  outline: 0;
+}
+
+.search:focus ~ .search_icon {
+  filter: brightness(10);
+}
+
+.search_icon {
+  filter: brightness(2.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}

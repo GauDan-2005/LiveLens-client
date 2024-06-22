@@ -1,0 +1,41 @@
+.category {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  align-self: stretch;
+  justify-content: center;
+  gap: 1rem;
+
+  color: #ededed;
+}
+
+.category_box {
+  padding: 0.5rem 0.8rem;
+
+  background: #303030;
+  border-radius: 0.5rem;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category_box:hover {
+  background: #404040;
+}
+
+.category_text {
+  font-size: 1rem;
+}
+
+.active {
+  background-color: #ededed; /* Example active background color */
+  color: #1a1a1a;
+}
+
+.hr {
+  background-color: #fff;
+  border: 0;
+  align-self: stretch;
+  margin: 0.5rem 0;
+  width: 1px;
+}
