@@ -4,13 +4,13 @@
   justify-content: flex-end;
   gap: 1rem;
   aspect-ratio: 1;
-
   position: relative;
   overflow: hidden;
   padding: 1rem;
   border-radius: 0.5rem;
   color: #fff;
   background: var(--cardgradient);
+  cursor: pointer;
 }
 
 .news_card:hover {
@@ -30,14 +30,11 @@
   height: 100%;
   padding: 1rem;
   border-radius: 0.5rem;
-  background: #1a1a1a; /* Set fallback background */
+  background: #1a1a1a;
   overflow: hidden;
   text-decoration: none;
   color: #fff;
   z-index: -2;
-
-  /* Remove default transition */
-  transition: none;
 }
 
 .news_img::before {
@@ -73,4 +70,39 @@
 .date {
   font-size: 0.8rem;
   margin-left: auto;
+}
+
+.fav_div {
+  z-index: 1000;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  height: 2rem;
+  width: 2rem;
+  background-color: #555;
+  padding: 0.5rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* cursor: pointer; */
+  transition: all 0.2s ease;
+}
+
+.fav_div:hover {
+  background-color: #1a1a1a;
+}
+
+.fav_isfav {
+  background-color: #1a1a1a;
+}
+
+.fav_isfav .fav_icon {
+  filter: hue-rotate(180deg);
+}
+
+.fav_icon {
+  width: 1.5rem;
+  height: 1.5rem;
 }

@@ -46,7 +46,11 @@ const News = () => {
               <p className={styles.author_text}>{formattedDate}</p>
             </div>
             {currNews.url && (
-              <a href={currNews.url} className={styles.source_div}>
+              <a
+                href={currNews.url}
+                target="_blank"
+                className={styles.source_div}
+              >
                 {currNews.source.name && (
                   <p className={styles.source_name}>{currNews.source.name}</p>
                 )}

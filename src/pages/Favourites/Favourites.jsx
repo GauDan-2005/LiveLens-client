@@ -26,7 +26,11 @@ const Favourites = () => {
       {favArray.length > 0 ? (
         <div className={styles.news_cards_div}>
           {currPageNewArray.map((article) => (
-            <NewsCard key={article.title} article={article} />
+            <NewsCard
+              key={article.title}
+              article={article}
+              isFavourite={true}
+            />
           ))}
         </div>
       ) : (

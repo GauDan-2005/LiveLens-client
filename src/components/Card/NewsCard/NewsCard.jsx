@@ -1,48 +1,68 @@
 import PropTypes from "prop-types";
 import styles from "./NewsCard.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const NewsCard = ({ article }) => {
+import { icons } from "../../../constants/Images";
+import { useDispatch, useSelector } from "react-redux";
+import { actions } from "../../../store";
+
+const NewsCard = ({ article, isFavourite }) => {
+  const dispatch = useDispatch;
+  const navigate = useNavigate();
+
+  const favourites = useSelector((state) => state.favourites.favorites);
   const dateObject = new Date(article.publishedAt);
-
   const options = {
     year: "numeric",
     month: "short",
     day: "numeric",
   };
+
+  const formattedDate = dateObject.toLocaleDateString("en-US", options);
+
+  const isFav = favourites.some((article) => article.title === article.title);
+
+  const saveNews = () => {
+    if (isFav) {
+      dispatch(actions.favouritesActions.removeFromFavorites(article));
+    } else {
+      dispatch(actions.favouritesActions.addToFavorites(article));
+    }
+  };
+
+  const handleNavigation = (url) => {
+    navigate(url);
+  };
+
   const backgroundStyle = {
     "--bg-image": article.urlToImage ? `url(${article.urlToImage})` : "none",
   };
 
-  const formattedDate = dateObject.toLocaleDateString("en-US", options);
-
-  const stringToKebabCase = (input) => {
-    // Step 1: Convert to lowercase and replace spaces/underscores with dashes
-    let kebabCaseString = input.toLowerCase().replace(/[_\s]+/g, "-");
-
-    // Step 2: Handle camel case by inserting dashes before uppercase letters
-    kebabCaseString = kebabCaseString.replace(
-      /[A-Z]/g,
-      (match) => "-" + match.toLowerCase()
-    );
-
-    // Remove leading dash, if any
-    if (kebabCaseString.charAt(0) === "-") {
-      kebabCaseString = kebabCaseString.slice(1);
-    }
-
-    return kebabCaseString;
-  };
-
   return (
-    <Link to={`/news/${article.title}`} className={styles.news_card}>
-      <div className={styles.news_img} style={backgroundStyle} />
+    <div className={styles.news_card}>
+      <div
+        className={styles.news_img}
+        style={backgroundStyle}
+        onClick={() => handleNavigation(`/news/${article.title}`)}
+      />
       <p className={styles.title}>{article.title}</p>
       <div className={styles.author_div}>
         {article.author && <p className={styles.author}>By {article.author}</p>}
         <p className={styles.date}>{formattedDate}</p>
       </div>
-    </Link>
+      {isFavourite && (
+        <div
+          onClick={saveNews}
+          className={`${styles.fav_div} ${isFav ? styles.fav_isfav : ""}`}
+        >
+          <img
+            className={styles.fav_icon}
+            src={icons.save}
+            alt="Add to favourites"
+          />
+        </div>
+      )}
+    </div>
   );
 };
 
